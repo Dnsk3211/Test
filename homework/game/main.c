@@ -13,8 +13,6 @@ int main()
         searchedNum = rand()%10;
 
         int i;
-
-
         for (i = 0; i < 3; i++){
             printf("Enter positive number(0-9): ");
             int y=scanf("%d", &userNum);
@@ -25,11 +23,6 @@ int main()
                 y=scanf("%d", &userNum);
             }
 
-            if (userNum<0){
-                printf("\nOops, your number is negative!\n");
-                continue;
-            }
-
             if(userNum<searchedNum){
                 printf("Bigger!\n");
             }
@@ -37,13 +30,15 @@ int main()
             if(userNum>searchedNum){
                 printf("Lower!\n");
             }
+
             if (userNum==searchedNum){
             printf("\nYahoooo! You win!\n");
             break;
             }
         }
+
         for(;;){
-            printf("\nLet's play again(y/n)? ");
+            printf("\n++++GAME OVER++++\nLet's play again(y/n)? ");
             scanf(" %s", &answer);
             if (answer == 'n'){
             return 0;
@@ -56,9 +51,5 @@ int main()
             continue;
             }
         }
-
-
-
     }
-
 }
