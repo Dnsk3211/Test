@@ -13,14 +13,16 @@ int main()
         searchedNum = rand()%10;
         printf("You have three attempts to guess the number\n");
         int i;
-        for (i = 0; i < 3; i++){
-            printf("Enter positive number(0-9): ");
-            int tempUserNum = scanf("%d", &userNum);
 
-            while (tempUserNum !=1 || userNum < 0) {
+        for (i = 0; i < 3; i++){
+
+            printf("Enter positive number(0-9): ");
+            userNum = getche();
+
+            while (!strchr ("1234567890", userNum)) {
                 fflush (stdin);
-                printf("wrong!\nEnter positive number(0-9): ");
-                tempUserNum = scanf("%d", &userNum);
+                printf("\nwrong!\nEnter positive number(0-9): ");
+                userNum = getche();
             }
 
             if(userNum < searchedNum){
@@ -39,8 +41,7 @@ int main()
         printf("\n++++GAME OVER++++\n");
         for(;;){
             printf("\nLet's play again(y/n)? ");
-            char tempAnswerExit = getch(" %s", &userAnswerExit);
-            printf("%s\n", &tempAnswerExit);
+            char tempAnswerExit = getche(" %s", &userAnswerExit);
             if (tempAnswerExit == 'n'){
                 return 0;
             }
@@ -49,7 +50,7 @@ int main()
                 break;
             }
             if (tempAnswerExit != 'y'){
-                printf("   wrong answer.\n If you want to continue play, enter \"y\". To exit, enter \"n\"");
+                printf("\n   wrong answer.\n If you want to continue play, enter \"y\". To exit, enter \"n\"");
             }
         }
     }
