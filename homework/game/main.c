@@ -11,7 +11,7 @@ int main()
     for(;;){
         srand(time(NULL));
         searchedNum = rand()%10;
-
+        printf("You have three attempts to guess the number\n");
         int i;
         for (i = 0; i < 3; i++){
             printf("Enter positive number(0-9): ");
@@ -19,16 +19,16 @@ int main()
 
             while (y!=1||userNum<0) {
                 fflush (stdin);
-                printf("wrong!\nEnter positive number(0-9): ");
+                printf("\n    Wrong!\n\nEnter positive number(0-9): ");
                 y=scanf("%d", &userNum);
             }
 
             if(userNum<searchedNum){
-                printf("Bigger!\n");
+                printf("\nBigger!\n\n");
             }
 
             if(userNum>searchedNum){
-                printf("Lower!\n");
+                printf("\nLower!\n\n");
             }
 
             if (userNum==searchedNum){
@@ -44,6 +44,7 @@ int main()
             return 0;
             }
             if (answer == 'y'){
+            system ("cls");
             break;
             }
             if (answer != 'y'){
