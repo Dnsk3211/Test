@@ -4,9 +4,9 @@
 
 int main()
 {
-    int searchedNum=0;
-    int userNum=0;
-    char answer;
+    int searchedNum = 0;
+    int userNum = 0;
+    char userAnswerExit;
 
     for(;;){
         srand(time(NULL));
@@ -15,41 +15,41 @@ int main()
         int i;
         for (i = 0; i < 3; i++){
             printf("Enter positive number(0-9): ");
-            int y=scanf("%d", &userNum);
+            int tempUserNum = scanf("%d", &userNum);
 
-            while (y!=1||userNum<0) {
+            while (tempUserNum !=1 || userNum < 0) {
                 fflush (stdin);
-                printf("\n    Wrong!\n\nEnter positive number(0-9): ");
-                y=scanf("%d", &userNum);
+                printf("wrong!\nEnter positive number(0-9): ");
+                tempUserNum = scanf("%d", &userNum);
             }
 
-            if(userNum<searchedNum){
+            if(userNum < searchedNum){
                 printf("\nBigger!\n\n");
             }
 
-            if(userNum>searchedNum){
+            if(userNum > searchedNum){
                 printf("\nLower!\n\n");
             }
 
-            if (userNum==searchedNum){
-            printf("\nYahoooo! You win!\n");
-            break;
+            if (userNum == searchedNum){
+                printf("\nYahoooo! You win!\n");
+                break;
             }
         }
-
+        printf("\n++++GAME OVER++++\n");
         for(;;){
-            printf("\n++++GAME OVER++++\nLet's play again(y/n)? ");
-            scanf(" %s", &answer);
-            if (answer == 'n'){
-            return 0;
+            printf("\nLet's play again(y/n)? ");
+            char tempAnswerExit = getch(" %s", &userAnswerExit);
+            printf("%s\n", &tempAnswerExit);
+            if (tempAnswerExit == 'n'){
+                return 0;
             }
-            if (answer == 'y'){
-            system ("cls");
-            break;
+            if (tempAnswerExit == 'y'){
+                system ("cls");
+                break;
             }
-            if (answer != 'y'){
-            printf("wrong answer.\n If you want to continue play, enter \"y\". To exit, enter \"n\"");
-            continue;
+            if (tempAnswerExit != 'y'){
+                printf("   wrong answer.\n If you want to continue play, enter \"y\". To exit, enter \"n\"");
             }
         }
     }
